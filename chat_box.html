@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Box</title>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .chat-container {
+            width: 100%;
+            border: 1px solid #333;
+            border-radius: 10px;
+            background: lightblue;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-box {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            border-bottom: 2px solid #f9f9f9;
+            max-height: 400px;
+        }
+        
+        .chat-message {
+            margin: 5px 0;
+        }
+        
+        .user {
+            color: blue;
+            text-align: right;
+        }
+        
+        .bot {
+            color: green;
+        }
+        
+        input[type="text"] {
+            border: none;
+            padding: 10px;
+            flex: 0 0 auto;
+        }
+        
+        button {
+            border: none;
+            background: #00ff22;
+            color: black;
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("send-button").addEventListener("click", function() {
+                const inputField = document.getElementById("user-input");
+                const userInput = inputField.value;
+
+                if (userInput.trim() === "") return;
+
+                displayMessage(userInput, 'user');
+
+                setTimeout(() => {
+                    const botResponse = getBotResponse(userInput);
+                    displayMessage(botResponse, 'bot');
+                }, 1000);
+            });
+
+            function displayMessage(message, sender) {
+                const chatBox = document.getElementById("chat-box");
+                const messageElement = document.createElement("div");
+                messageElement.classList.add("chat-message", sender);
+                messageElement.textContent = message;
+                chatBox.appendChild(messageElement);
+                chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+            }
+
+            function getBotResponse(userInput) {
+                const responses = {
+                    "hi": "Hello! How can I help you today?",
+                    "how are you?": "I'm just a program, but I miss you! I'm doing well!",
+                    "what is your name?": "I'm a mini chat bot created by Christian N Regala.",
+                    "bye": "Goodbye! Have a great day!",
+                    "what is the user profile of christian n. regala": "Name: Christian N Regala. Address: Purok Paris, Sitio Panas, Libertad Bogo City, Cebu 6010. Status: Single.",
+                    "tell me about christian n. regala": "Name: Christian N Regala. Address: Purok Paris, Sitio Panas, Libertad Bogo City, Cebu 6010. Status: Single."
+                };
+
+                const cleanedInput = userInput.trim().toLowerCase();
+                return responses[cleanedInput] || "I'm sorry, I don't understand that.";
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome To Christian's A.I Chat Box</h1>
+            <p>Feel Free To Ask Any Question</p>
+            <div class="chat-container">
+                <div class="chat-box" id="chat-box"></div>
+                <input type="text" id="user-input" placeholder="Ask A Question..." />
+                <button id="send-button">Send</button>
+                <p>Available Commands Are</p>
+                <p>hi</p>
+                <p>how are you?</p>
+                <p>what is your name?</p>
+                <p>bye</p>
+                <p>what is the user profile of christian n. regala</p>
+                <p>tell me about christian n. regala</p>
+
+            </div>
+        </header>
+    </div>
+</body>
+
+</html>

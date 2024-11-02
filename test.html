@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- CSS for loader and circular image -->
+    <style>
+        .mmain-content {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .moving-bottom-header {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 248, 236, 0.26);
+            color: #e74c3c;
+            text-align: center;
+            padding: 10px 0;
+            overflow: hidden;
+            font-size: 1.2rem;
+            font-family: 'Times New Roman', Times, serif;
+            z-index: 1000;
+        }
+        
+        .moving-bottom-header p {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: slide 20s linear infinite;
+        }
+        
+        @keyframes slide {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        
+        .aesthetic-div {
+            font-family: 'Raleway', sans-serif;
+            background-color: #ffffff;
+            border: 2px solid;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 600px;
+            transition: transform 0.3s;
+        }
+        
+        .aesthetic-div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        h2 {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        p {
+            font-weight: 400;
+            line-height: 1.6;
+            color: #000000;
+        }
+        
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 3rem;
+            color: #37f055;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        h1:hover {
+            transform: scale(1.1);
+            color: #e74c3c;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .circle-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        /* Chat styles */
+        
+        .chat-container {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .chat-box {
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        
+        .chat-message {
+            margin: 5px 0;
+        }
+        
+        .user {
+            color: blue;
+            text-align: right;
+        }
+        
+        .bot {
+            color: green;
+        }
+        
+        input[type="text"] {
+            width: calc(100% - 22px);
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        button {
+            border: none;
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w3-bar w3-black w3-hide-small swipe">
+        <a href="https://www.facebook.com/profile.php?id=61561110523865" class="w3-bar-item w3-button"><i class="fa fa-facebook-official"></i></a>
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-instagram"></i></a>
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-snapchat"></i></a>
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-flickr"></i></a>
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-twitter"></i></a>
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-right"><i class="fa fa-search"></i></a>
+    </div>
+    <div class="w3-row">
+        <div class="w3-half w3-black w3-container w3-center" style="height:800px">
+            <div class="w3-padding-64">
+                <h1 class="animated-title">My Logo</h1>
+            </div>
+            <div class="w3-padding-64 swipe">
+                <a href="#" class="w3-button w3-black w3-block w3-hover-blue-grey w3-padding-18">Home</a>
+                <a href="#" class="w3-button w3-black w3-block w3-hover-teal w3-padding-18">My Work</a>
+                <a href="#" class="w3-button w3-black w3-block w3-hover-dark-grey w3-padding-18">Resume</a>
+                <a href="#" class="w3-button w3-black w3-block w3-hover-brown w3-padding-18">Contact</a>
+                <a href="send_a_message.html" class="w3-button w3-black w3-block w3-hover-brown w3-padding-18">Send A Message</a>
+            </div>
+        </div>
+        <div class="w3-half w3-blue-grey w3-container" style="height: 800px">
+            <div class="w3-padding-64 w3-center">
+                <h1 class="animated-title">About Me</h1>
+                <img src="main_picture.jpg" class="circle-img swipe" alt="My Picture">
+                <div class="w3-left-align w3-padding-large swipe aesthetic-div">
+                    <p>Hello! I'm an aspiring IT professional with a focus on Basic Web Programming and a solid foundation as an I.T. Technician. I am currently pursuing a Bachelor of Science in Information Technology at Cebu Roosevelt Memorial Colleges,
+                        where I have been honing my technical skills and deepening my knowledge in the field of technology.</p>
+                    <p>I am willing to learn and continuously seek opportunities to expand my expertise. Whether it's web development, troubleshooting, or exploring new technologies, I am driven by a passion for creating efficient solutions and embracing
+                        growth. I'm excited to apply my skills in real-world projects and contribute to the dynamic field of IT.</p>
+                </div>
+
+                <!-- Chat Feature -->
+                <div class="chat-container">
+                    <div class="chat-box" id="chat-box"></div>
+                    <input type="text" id="user-input" placeholder="Ask a question..." />
+                    <button id="send-button">Send</button>
+                </div>
+
+                <div class="moving-bottom-header">
+                    <p> A Simple Website Made By Christian N Regala CRMC Student with a Degree Of Bachelor Of Science In Information Technology</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("send-button").addEventListener("click", function() {
+            const inputField = document.getElementById("user-input");
+            const userInput = inputField.value;
+
+            if (userInput.trim() === "") return;
+
+            // Display user's message
+            displayMessage(userInput, 'user');
+
+            // Simulate bot response
+            setTimeout(() => {
+                const botResponse = getBotResponse(userInput);
+                displayMessage(botResponse, 'bot');
+            }, 1000);
+
+            inputField.value = ""; // Clear input field
+        });
+
+        function displayMessage(message, sender) {
+            const chatBox = document.getElementById("chat-box");
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("chat-message", sender);
+            messageElement.textContent = message;
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+        }
+
+        function getBotResponse(userInput) {
+            const responses = {
+                "hi": "Hello! How can I help you today?",
+                "how are you?": "I'm just a program, but I'm doing well!",
+                "what is your name?": "I'm a mini chatbot created in JavaScript.",
+                "bye": "Goodbye! Have a great day!",
+            };
+
+            return responses[userInput.toLowerCase()] || "I'm sorry, I don't understand that.";
+        }
+    </script>
+</body>
+
+</html>
